@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+function average() {
+    var max=Math.max.apply(null,arguments);
+    var min=Math.min.apply(null,arguments);
+    var total=null;
+    for (var i=0;i<arguments.length;i++){
+        total+=arguments[i];
+    }
+    var cur=(total-min-max)/(arguments.length-2);
+    return cur.toFixed(2);
+}
+console.log(average(1, 2, 3, 4));
+
+    function average1() {
+        var ary=[];
+        for (var i=0;i<arguments.length;i++){
+            ary[i]=arguments[i];
+        }
+        ary.pop();
+        ary.shift();
+        return (eval(ary.join("+"))/ary.length).toFixed(2)
+    }
+console.log(average1(1, 2, 3));
+
+
+    function average2() {
+        var ary=[].slice.call(arguments);
+        ary.sort(function (a,b) {
+            return a-b;
+        });
+        ary.pop();
+        ary.shift();
+        return (eval(ary.join("+"))/(ary.length-2)).toFixed(2);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

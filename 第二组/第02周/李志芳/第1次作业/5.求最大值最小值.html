@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //三种方法
+    var ary=[12,45,3,78,34,56,23];
+    //思路一 先排序 然后取最大值最小值
+    /*ary.sort(0function (a,b){return a-b;});
+     var max=ary[ary.length-1];
+     var min=ary[0];*/
+
+    //思路二 假设法，假设第一个是最大或最小值，然后依次和后边的项进行比较
+    /*var max=ary[0],min=ary[0];
+     for(var i=1;i<ary.length;i++){
+     var cur=ary[i];
+     cur>max?max=cur:null;
+     cur<min?min=cur:null;
+     }*/
+
+    //思路三 利用apply方法，传值的时候是一项一项的传值
+    /*var max=Math.max.apply(null,ary);
+     var min=Math.min.apply(null,ary);*/
+
+    //思路四 字符串拼接，然后利用eval给字符串一个js执行的环境
+    var max=eval("Math.max(" + ary.toString() + ")");
+    var min=eval("Math.min("+ary.toString()+")");
+    console.log(max,min)
+</script>

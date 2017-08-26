@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map方法封装</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    Array.prototype.myMap=function (callback,context) {
+        if([].map){
+            return this.map(callback,context)
+        }
+        context=context||window;
+        var ary=[];
+        for(var i=0;i<this.length;i++){
+            ary.push(callback.call(context,this.i,i,this));
+        }
+    };
+
+    var ary=[5,10,15,20,25];
+    var obj={};
+    var res=ary.myMap(function (item) {
+        console.log(item);
+        console.log(this);
+        return item+2;
+    },obj);
+    console.log(res);
+
+</script>

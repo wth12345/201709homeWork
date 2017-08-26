@@ -1,0 +1,8 @@
+[
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表1","hot":35,"price":568,"date":"2017-6-7"},
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表2","hot":5677,"price":168,"date":"2017-7-7"},
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表3","hot":2345,"price":508,"date":"2017-9-7"},
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表4","hot":345,"price":680,"date":"2017-6-9"},
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表5","hot":305,"price":568,"date":"2017-8-7"},
+  {"id":1,"img":"img/pic.jpg","title":"华为好玩的手表6","hot":135,"price":68,"date":"2017-12-7"}
+]

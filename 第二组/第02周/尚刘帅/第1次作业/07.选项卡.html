@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            border: 1px solid black;
+            width: 306px;
+            margin: 30px auto;
+        }
+
+        #ul li {
+            list-style: none;
+            float: left;
+            line-height: 40px;
+            background-color: aquamarine;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #div div {
+            display: none;
+            text-align: center;
+            height: 200px;
+        }
+
+        #div .selectedDiv {
+            background-color: aqua;
+            display: block;
+        }
+
+        #ul .selectedLi {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul id="ul">
+        <li class="selectedLi">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="selectedDiv">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+</body>
+</html>
+<script>
+
+    //面向过程写
+//    var oUl=document.getElementById('ul');
+//    var oDiv=document.getElementById('div');
+//    var oLis=oUl.getElementsByTagName('li');
+//    var oDivs=oDiv.getElementsByTagName('div');
+//    for(var i=0;i<oLis.length;i++){
+//        oLis[i].onmouseover=(function (i) {
+//            return function () {
+//                for(var j=0;j<oLis.length;j++){
+//                    oLis[j].className='';
+//                    oDivs[j].className='';
+//                }
+//                oLis[i].className='selectedLi';
+//                oDivs[i].className='selectedDiv';
+//            }
+//        })(i);
+//    }
+
+    //面向对象
+    function Tab(obj){
+        this.id=obj.id;
+        this.selected=obj.selected||0;
+        this.init();
+    }
+
+    Tab.prototype.init=function () {
+        this.getEle();
+        this.bind();
+        this.changeTab(this.selected);
+    };
+
+    Tab.prototype.getEle=function () {
+        var oDiv=document.getElementById(this.id);
+        this.oLis=oDiv.getElementsByTagName('li');
+        this.oDivs=oDiv.getElementsByTagName('div');
+    };
+
+    Tab.prototype.bind=function () {
+        var that=this;
+        for(var i=0;i<this.oLis.length;i++){
+            that.oLis[i].onmouseover=(function (i) {
+                   return function () {
+                       that.changeTab(i);
+                   }
+                }
+            )(i);
+        }
+    };
+
+    Tab.prototype.changeTab=function (n) {
+        for(var i=0;i<this.oLis.length;i++){
+            this.oLis[i].className='';
+            this.oDivs[i].className='';
+        }
+        this.oLis[n].className='selectedLi';
+        this.oDivs[n].className='selectedDiv';
+    };
+
+
+
+    new Tab({id:'div',selected:0});
+
+</script>

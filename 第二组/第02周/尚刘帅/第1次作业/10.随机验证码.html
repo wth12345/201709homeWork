@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机验证码</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function getRanNum(n) {
+        var str='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var ranNum='';
+        for(var i=0;i<n;i++){
+            var temp=str.charAt(Math.round(Math.random()*str.length));
+            if(ranNum.indexOf(temp)<0){
+                ranNum+=temp;
+            }else{
+                i--;
+            }
+        }
+        return ranNum;
+    }
+
+    console.log(getRanNum(4));
+
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 500px;
+            height: 60px;
+            margin:0 auto;
+            line-height: 60px;
+            text-align: center;
+            background:greenyellow;
+        }
+        #div span{
+
+        }
+    </style>
+</head>
+<body>
+<div id="div">距离睡觉还有 <span id="oSpan">0时0分0秒</span></div>
+</body>
+</html>
+<script>
+//    var oDiv=document.getElementById("div");
+    var oSpan=document.getElementById("oSpan");
+    console.log(oSpan);
+    function zero(num){
+        return num<10?"0"+num:num;
+    }
+    function getTime(){
+        var targetTime=new Date("2017/8/25 1:00:00");
+        var currentTime=new Date();
+        var spanTime=targetTime.getTime()-currentTime.getTime();
+        var hours=Math.floor(spanTime/(60*60*1000));
+        var spanTime=spanTime-hours*60*60*1000;
+        var minutes=Math.floor(spanTime/(60*1000));
+        var spanTime=spanTime-minutes*60*1000;
+        var seconds=Math.floor(spanTime/1000);
+        var str=zero(hours)+"时"+zero(minutes)+"分"+zero(seconds)+"秒";
+        oSpan.innerHTML=str;
+    }
+    getTime();
+    var timer=window.setInterval(getTime,1000);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>

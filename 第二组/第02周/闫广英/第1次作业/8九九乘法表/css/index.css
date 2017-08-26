@@ -1,0 +1,28 @@
+#tab{
+    width: 900px;
+    height: 270px;
+    margin: 150px auto;
+    padding: 30px;
+    background-color: #c5cdcf;
+    border-radius: 10px;
+}
+#tab ul li{
+    height: 30px;
+    line-height: 30px;
+}
+#tab ul li span{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.bg1{
+    background-color: #2c85ce;
+}
+.bg2{
+    background-color: #cb681c;
+}
+.bg3{
+    background-color: forestgreen;
+}

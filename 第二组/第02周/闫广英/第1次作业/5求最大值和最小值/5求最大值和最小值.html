@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //数组中取最大和最小
+    function getValue(ary) {
+        ary.sort(function (a,b) {
+            return a-b;
+        });
+        var ary1=[];
+        ary1[0]=ary[0];
+        ary1[1]=ary[ary.length-1];
+        return ary1;
+    }
+    var ary=[1,2,3,4,5,6];
+    console.log(getValue(ary));
+
+
+
+    //sort排序
+    ary.sort(function (a,b) {
+        return a-b;
+    });
+    var min=ary[0];
+    var max=ary[ary.length-1];
+
+    //eval+Math.min&&max
+    var min=eval("Math.min("+ary.toString()+")");
+    var max=eval("Math.max("+ary.toString()+")");
+
+    //apply
+    Math.min.apply(null,ary);
+    Math.max.apply(null,ary);
+
+    //假设
+    var min=ary[0];
+    var max=ary[0];
+    for (var i=1;i<ary.length;i++){
+        ary[i]>max?max=ary[i]:null;
+        ary[i]<min?min=ary[i]:null;
+    }
+
+
+
+
+
+
+
+</script>

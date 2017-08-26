@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .tab1 {
+            width: 308px;
+            margin: 30px auto;
+        }
+        .tab1 ul{
+            overflow: hidden;
+        }
+        .tab1 ul li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        .tab1 ul li.select{
+            background-color: red;
+        }
+        .tab1 div{
+            height: 100px;
+            border: 1px solid #000;
+            display: none;
+        }
+        .tab1 div.select{
+            background-color: red;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab" class="tab1">
+    <ul>
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="select">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<div id="tab1" class="tab1">
+    <ul>
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="select">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>
+<script>
+    //获取元素
+    /*var oTab=document.getElementById("tab");
+    var oLis=oTab.getElementsByTagName("li");
+    var oDivs=oTab.getElementsByTagName("div");
+    //绑定事件
+    for(var i=0;i<oLis.length;i++){
+        ~(0function(i){
+            oLis[i].onclick=0function(){
+                changeTab(i);
+            }
+        })(i)
+
+    }
+    //实现tab切换
+    0function changeTab(n){
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].className="";
+            oDivs[i].className="";
+        }
+        oLis[n].className="select";
+        oDivs[n].className="select";
+    }*/
+
+    //确定哪些参数是必须传的
+    //以那种方式封装插件   (构造函数+原型）
+    //插件里要实现的功能有哪些（获取元素，绑定事件，实现tab切换）
+    function Tab(option){
+        this.id=option.id;
+        this.select=option.select||0;
+        this.init();//初始化
+    }
+    Tab.prototype.init=function(){
+        //获取元素
+        this.getEle();
+        //绑定事件
+        this.bind();
+
+        //实现tab切换
+        //初始化选中效果
+        this.tabChange(this.select);
+
+    };
+    Tab.prototype.getEle=function (){
+        var oTab=document.getElementById(this.id);
+        this.oLis=oTab.getElementsByTagName("li");
+        this.oDivs=oTab.getElementsByTagName("div");
+    }
+    Tab.prototype.bind=function (){
+        var that=this;
+        for(var i=0;i<this.oLis.length;i++){
+            ~(function(i){
+                that.oLis[i].onclick=function(){
+                    that.tabChange(i);
+                }
+            })(i)
+
+        }
+    }
+    Tab.prototype.tabChange=function(n){
+        for(var i = 0;i<this.oLis.length;i++){
+            this.oLis[i].className = "";
+            this.oDivs[i].className = "";
+        }
+        this.oLis[n].className = "select";
+        this.oDivs[n].className = "select";
+    }
+    new Tab({id:"tab1"})
+    new Tab({id:"tab"})
+</script>
