@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+    <li id=>60</li>
+</ul>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var objJson = null;
+    var ary = new XMLHttpRequest();
+    ary.open("get", "zxc", false);
+    ary.onreadystatechange = function () {
+        if (ary.readyState == 4 && /^2\d{2}$/.test(ary.status)) {
+            objJson = utils.toJSON(ary.responseText)
+        }
+    };
+    ary.send(null);
+    console.log(objJson);
+    var oUl = document.getElementById("ul1");
+    var str = "";
+    for(var i = 0;i<objJson.length;i++){
+        str += "<li>"+objJson[i]["txt"]+"</li>"
+
+    }
+    oUl.innerHTML += str;
+</script>

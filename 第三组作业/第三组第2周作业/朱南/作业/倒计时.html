@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        html {
+            background:url("img/dog.jpg");
+            position: relative;
+        }
+        #wrap {
+            font-size: 90px;
+            width: 700px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            color: purple;
+            background: yellow;
+            position: absolute;
+            right: 10px;
+            top: 50px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">4小时3分钟43秒</div>
+<script>
+
+
+    var oDiv = document.getElementById("wrap");
+    function getTim() {
+        var now = new Date();
+        var target = new Date("2017/08/28 00:00:00");
+        var spantime = target.getTime() - now.getTime();
+        //console.log(spantime);
+        var hour = Math.floor(spantime/(60*60*1000));
+        spantime = spantime -(hour*60*60*1000);
+        var minuts = Math.floor(spantime/(60*1000));
+        spantime  = spantime - (minuts*60*1000);
+        var second = Math.floor(spantime/1000);
+        //var otime = document.getElementById("time");
+        oDiv.innerHTML = hour +"小时"+minuts+"分"+second + "秒";
+    }
+
+    setInterval("getTim()",1000);
+
+
+</script>
+</body>
+</html>

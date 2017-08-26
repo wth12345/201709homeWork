@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 100px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="##">0</a>
+</body>
+</html>
+<script>
+//var i =0;
+//    var oAs = document.getElementsByTagName("a");
+//        oAs[0].onclick=function () {
+//            oAs[0].innerHTML=++i;
+//        };
+
+//var oAs = document.getElementsByTagName("a");
+//
+//~(function(){
+//    var i = 0;
+//    oAs[0].onclick=function () {
+//    oAs[0].innerHTML=++i;
+//
+//};})()//利用闭包，避免全局污染。
+
+var oAs = document.getElementsByTagName("a");
+    oAs[0].onclick=(function (){
+        var i=0;
+        return function (){
+            oAs[0].innerHTML=++i;
+        }
+    })();//利用闭包
+
+
+
+</script>

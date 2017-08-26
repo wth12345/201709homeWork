@@ -1,0 +1,51 @@
+body{
+    background-color: #dddddd;
+}
+#type{
+    width: 100%;
+
+}
+#top{
+    width: 1200px;
+    height: 50px;
+    line-height: 50px;
+    margin: 20px auto;
+    background-color: white;
+}
+#top h4{
+    margin-left: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+}
+#top a{
+    color: #999;
+    margin-left: 25px;
+    font-size: 16px;
+}
+#top a:hover{
+    color: red;
+}
+#oul{
+
+    margin: 0 auto;
+    list-style: none;
+    width: 1200px;
+    overflow: hidden;
+}
+#oul li span{
+    float: left;
+    width: 196px;
+    font-size: 12px;
+    color: #8dae83;
+    margin-bottom: 3px;
+}
+li{background-color: white;
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    margin:15px 0px 15px 15px;
+}
+img{
+    width: 180px;
+}

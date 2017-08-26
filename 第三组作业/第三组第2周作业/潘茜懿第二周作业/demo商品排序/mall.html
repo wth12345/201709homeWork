@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.min.css">
+    <link rel="stylesheet" href="mall.css">
+</head>
+<body>
+<div id="type">
+    <div id="top">
+        <h4>排序:</h4>
+        <a href="javascript:void (0)">上架时间</a>
+        <a href="javascript:void (0)">价格</a>
+        <a href="javascript:void (0)">热度</a>
+    </div>
+    <ul id="oul">
+        <!--<li><img src="image/1.jpg" alt="">
+            <span>华为好玩的手表七</span>
+            <span>2014-01-01</span>
+            <span>1235</span>
+            <span>￥12</span>
+        </li>-->
+    </ul>
+</div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script src="mall.js"></script>
+<!--<script>-->
+    <!--var jsonObj = null;-->
+    <!--var xhr = new XMLHttpRequest();-->
+    <!--xhr.open("get","prodct.json",false);-->
+    <!--xhr.onreadystatechange = function(){-->
+        <!--if(xhr.readyState==4 && /^2\d{2}$/.test( xhr.status)){-->
+            <!--jsonObj = utils.toJSON(xhr.responseText);-->
+        <!--}-->
+
+    <!--};-->
+    <!--xhr.send(null);-->
+    <!--var  oUl = document.getElementById("oul");-->
+    <!--var str  ="";-->
+    <!--for(var i =0;i<jsonObj.length;i++){-->
+        <!--str+="<li>";-->
+        <!--str+="<img src='"+jsonObj[i]["img"]+"'>";-->
+        <!--str+="<span>"+jsonObj[i]["title"]+"</span>";-->
+        <!--str+="<span>"+jsonObj[i]["time"]+"</span>";-->
+        <!--str+="<span>"+jsonObj[i]["hot"]+"</span>";-->
+        <!--str+="<span>"+jsonObj[i]["price"]+"</span>";-->
+        <!--str+="</li>";-->
+    <!--}-->
+    <!--oUl.innerHTML = str;-->
+
+<!--</script>-->

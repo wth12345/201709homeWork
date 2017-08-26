@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            height: 450px;
+            width: 401px;
+            margin: 50px auto;
+        }
+        #box ul,li{
+            list-style: none;
+        }
+        #box ul{
+            width: 400px;
+
+            border-top: 1px solid #1ABBFF;
+            border-left: 1px solid #1ABBFF;
+            overflow: hidden;
+        }
+        #box ul li{
+            width: 99px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            border-right: 1px solid #1ABBFF;
+            border-bottom: 1px solid #1ABBFF;
+            background: #E3FF25;
+            float: left;
+        }
+        #box ul li.selectLi{
+            background: #20FFD1;
+        }
+        #box div.selectDiv{
+            background: #20FFD1;
+            display: block;
+        }
+        #box div{
+            width: 399px;
+            height: 399px;
+            border-right: 1px solid #1ABBFF;
+            border-bottom: 1px solid #1ABBFF;
+            border-left: 1px solid #1ABBFF;
+            background: #E3FF25;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>
+<script>
+    //方法1
+    /*var oDiv = document.getElementById("box");
+    var oLis = oDiv.getElementsByTagName("li");
+    var oDivs = oDiv.getElementsByTagName("div");
+    function changeLi(n) {
+        for(var i = 0;i < oLis.length;i ++){
+            oLis[i].className = "";
+            oDivs[i].className = "";
+        }
+        oLis[n].className = "selectLi";
+        oDivs[n].className = "selectDiv";
+    }
+    for(var i = 0;i < oLis.length;i ++){
+        ~(function (i) {
+            oLis[i].onclick = function () {
+                changeLi(i);
+            }
+        })(i);
+
+    }*/
+    //方法2
+    function ChangeLi(option) {
+        this.id = option.id;
+        this.select = option.select || 0;
+        this.init();
+
+    }
+    ChangeLi.prototype.init = function(){
+        this.getEle();
+        this.clickLi();
+        this.selectChange(this.select);
+    }
+    ChangeLi.prototype.getEle = function () {
+        var oDiv = document.getElementById(this.id);
+        this.oLis = oDiv.getElementsByTagName("li");
+        this.oDivs = oDiv.getElementsByTagName("div");
+    }
+    ChangeLi.prototype.clickLi = function () {
+        var that = this;
+        for(var i = 0;i < this.oLis.length;i ++){
+            ~(function (i) {
+                that.oLis[i].onclick = function () {
+                    that.selectChange(i);
+                }
+            })(i);
+
+        }
+    }
+    ChangeLi.prototype.selectChange = function (n) {
+        for(var i = 0;i < this.oLis.length;i ++){
+            this.oLis[i].className = "";
+            this.oDivs[i].className = "";
+        }
+        this.oLis[n].className = "selectLi";
+        this.oDivs[n].className = "selectDiv";
+    }
+    var option = {
+        id : "box",
+        select : 2
+    }
+    new ChangeLi(option);
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最大值最小值</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //方法1
+    var ary = [1,2,3,4,5,33,22,11,23];
+    var max = null;
+    var min = null;
+//    ary.sort(function(a,b){return a - b});
+//    max = ary[ary.length -1];
+//    min = ary[0];
+
+    //方法2
+
+    max = eval("Math.max("+ary.toString()+")");
+    min = eval("Math.min("+ary.toString()+")");
+
+    //方法3
+    max = Math.max.apply(null,ary);
+    min = Math.min.apply(null,ary);
+
+    //方法4
+    max = ary[0];
+    for(var i = 1;i < ary.length;i ++){
+        max < ary[i] ? max = ary[i] : null;
+        min > ary[i] ? min = ary[i] : null;
+    }
+
+</script>

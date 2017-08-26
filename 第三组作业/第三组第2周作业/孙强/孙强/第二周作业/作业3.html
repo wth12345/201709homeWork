@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [13,15,20,45];
+    Array.prototype.myMap = function(callback,context){
+        context = context || window;
+        if ([].map){
+            this.map(callback,context);
+            return
+        }
+        var arr = [];
+        var res = null;
+        for(var i = 0;i<this.length;i++){
+            res = callback.call(context,this[i],i,this);
+            arr.push(res);
+        }
+        return arr;
+        console.log(arr);
+    }
+    ary.myMap(function(){
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+
+    })
+</script>

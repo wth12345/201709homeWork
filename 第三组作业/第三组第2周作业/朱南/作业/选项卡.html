@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+
+        }
+        ul,li {
+            list-style: none;
+        }
+        #tab {
+            width: 304px;
+            margin:  20px auto auto;
+            border-right: 1px solid gainsboro;
+
+
+        }
+        #tab ul {
+            overflow: hidden;
+
+        }
+        #tab ul li {
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            float: left;
+            border-left:1px solid gainsboro;
+            border-top: 1px solid gainsboro;
+
+        }
+        #tab div {
+            width: 303px;
+            height: 200px;
+            border-left: 1px solid gainsboro;
+            border-bottom: 1px solid gainsboro;
+            display: none;
+        }
+        #tab div.selectDiv{
+            display: block;
+            background: purple;
+        }
+        #tab li.selectLi{
+            background: purple;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="selectLi">选项卡1</li>
+        <li>选项卡2</li>
+        <li>选项卡3</li>
+    </ul>
+    <div class="selectDiv">选项卡1的内容</div>
+    <div>选项卡2的内容</div>
+    <div>选项卡3的内容</div>
+</div>
+</body>
+<script>
+    var oTab = document.getElementById("tab");
+    var oLis = oTab.getElementsByTagName("li");
+    var oDivs = oTab.getElementsByTagName("div");
+    for(var i = 0 ;i<oLis.length;i++){
+        ~(function (i) {
+            oLis[i].onclick = function () {
+                for(var j = 0;j<oLis.length;j++){
+                    oLis[j].className = null;
+                    oDivs[j].className = null;
+                }
+                oLis[i].className = "selectLi";
+                oDivs[i].className = "selectDiv";
+            }
+        })(i);
+
+    }
+</script>
+</html>

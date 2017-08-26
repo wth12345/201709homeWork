@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机验证码</title>
+    <style>
+        #box{
+            height: 300px;
+            width: 300px;
+            text-align: center;
+            background: #B6FF4B;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var str = "13erewfsdgfaggsdasgfdgsdfsd123456782q35467";
+    console.log(str.length);
+    var str1 = "";
+    var i = 0;
+    var obj = {};
+    var objIndex = null;
+    while(i  < 4){
+        var temp = str[Math.round(Math.random()*(41 - 0))];
+
+        objIndex = temp;
+        if(obj[objIndex] === objIndex){
+            continue;
+        }
+        obj[objIndex] = objIndex;
+        str1 += temp;
+        i ++;
+    }
+    var box = document.getElementById("box");
+    box.innerHTML = str1;
+</script>

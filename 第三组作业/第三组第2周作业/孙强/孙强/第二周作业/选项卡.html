@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{  margin: 0px;
+            padding: 0px;
+        }
+    #div1{
+        width: 304px;
+        margin: 20px auto;
+    }
+        #ul1{
+            overflow: hidden;
+            list-style: none;
+            border-top: 1px solid;
+            border-right: 1px solid;
+        }
+        #ul1 li {
+            width: 100px;
+            float: left;
+            text-align: center;
+            border-left: 1px solid;
+        }
+        #div1 div{
+            line-height: 200px;
+            text-align: center;
+            border: 1px solid;
+            height: 200px;
+            display: none;
+        }
+        #ul1 .li1{
+            background-color: gainsboro;
+        }
+        #div1 .div2{
+            background-color: gainsboro;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul id="ul1">
+        <li class="li1">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="div2">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    var oLis = oDiv.getElementsByTagName("li");
+    var oDivs = oDiv.getElementsByTagName("div")
+//var a = 0;
+//    for(var i =0;i<oLis.length;i++){
+//            oLis[i].c=i;
+//        oLis[i].onclick =function(){
+//            x(this.c);
+//        }
+//    }
+//    function x(n){
+//        oLis[a].className = "";
+//        oDivs[a].className = "";
+//        oLis[n].className = "li1";
+//        oDivs[n].className = "div2";
+//        a = n;
+//    }
+
+
+
+
+ for(var i = 0;i<oLis.length;i++){
+ (function(i){
+ oLis[i].onclick = function(){
+ x(i);
+ }
+ })(i);
+
+ }
+
+
+ function x(n){
+ for(var i = 0;i<oLis.length;i++){
+ oLis[i].className = "";
+ oDivs[i].className = "";
+ }
+ oLis[n].className = "li1";
+ oDivs[n].className = "div2";
+ }
+
+
+
+
+</script>
