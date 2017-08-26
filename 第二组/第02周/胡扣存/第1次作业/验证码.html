@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div{
+            width: 100px;
+            margin:0 auto;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background:greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>
+<script>
+    var str="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var oDiv=document.getElementById("div");
+    var str1="";
+    function getRandom(){
+        while(str1.length<4){
+            var ran=Math.round(Math.random()*61);
+            if(str1.indexOf(ran)==-1){
+                str1+=str[ran];
+            }
+        }
+    }
+    getRandom();
+    oDiv.innerHTML=str1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

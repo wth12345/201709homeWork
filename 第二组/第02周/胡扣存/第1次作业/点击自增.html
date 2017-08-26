@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            margin:200px auto;
+            color:red;
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+            background:-webkit-linear-gradient(top left,red,yellow,pink,green);
+        }
+    </style>
+</head>
+<body>
+<div id="div">0</div>
+</body>
+</html>
+<script>
+    /*方法一*/
+//    var oDiv=document.getElementById("div");
+//    var n=0;
+//    oDiv.onclick=function(){
+//        oDiv.innerHTML=++n;
+//    };
+
+    /*方法二*/
+//    var oDiv=document.getElementById("div");
+//    var n=0;
+//    oDiv.onclick=(function(){
+//        return function (){
+//            oDiv.innerHTML=++n;
+//        }
+//    })();
+
+    /*方法二简化*/
+//    var oDiv =document.getElementById("div");
+//    var n=0;
+//    oDiv.onclick=(function(){
+//        oDiv.onclick=function(){
+//            oDiv.innerHTML=++n;
+//        }
+//    });
+
+
+
+
+    /*方法三*/
+    var oDiv = document.getElementById("div");
+    var n=0;
+    ~function(){
+        oDiv.onclick=function(){
+            oDiv.innerHTML=++n;
+        }
+    }();
+
+
+
+
+
+
+
+
+</script>

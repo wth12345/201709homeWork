@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: black;
+            border-radius: 50%;
+            margin: 10px auto;
+            line-height: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 28px;
+            -webkit-user-select: none;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="div1">0</div>
+
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("div1");
+    var count=0
+    oDiv.onclick=function () {
+        count++
+        oDiv.innerHTML=count;
+    }
+
+</script>

@@ -1,0 +1,77 @@
+
+html{
+    background-color: rgb(240,240,240);
+    font-family: "Microsoft YaHei";
+    color:#555;
+}
+
+#container{
+    margin:50px auto;
+    height:500px;
+    width:1200px;
+}
+
+#container div{
+    height:100%;
+    width:200px;
+    font-size: 20px;
+}
+
+#div1{
+    background-color: white;
+    float:left;
+    box-shadow: 0 5px 5px 0 rgb(210,210,210);
+}
+
+#div2{
+    margin-left:50px;
+    float:left;
+}
+
+#nav{
+    padding: 30px 20px;
+}
+
+#nav p{
+    font-size: 40px;
+    margin:10px 10px;
+    color:black;
+}
+#nav li{
+    margin:20px 10px;
+    cursor: pointer;
+}
+#nav li:hover{
+    color:red;
+}
+
+#list{
+    width:900px;
+}
+
+#list li{
+    float: left;
+    width:200px;
+    border: 1px solid white;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 5px 5px 0 rgb(210,210,210);
+}
+
+#list li:hover{
+    border: 1px solid black;
+}
+
+#list li img{
+    width:200px;
+}
+
+#list li p{
+    margin:10px 20px;
+    font-size: 16px;
+}
+
+
+
+

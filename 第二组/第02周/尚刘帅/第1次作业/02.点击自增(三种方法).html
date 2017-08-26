@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击自增(三种方法)</title>
+    <style>
+        div{
+            margin:0 auto;
+            height:200px;
+            width:200px;
+            border-radius:100px;
+        }
+        #div1{
+            background-color:rgb(255,241,0);
+            color:rgb(252,209,22);
+        }
+        #div2{
+            background-color:rgb(236,0,140);
+            color:rgb(180,0,158);
+        }
+        #div3{
+            background-color:rgb(0,188,242);
+            color:rgb(0,114,198);
+        }
+        p{
+            line-height: 200px;
+            height: 200px;
+            text-align: center;
+            font-size: 100px;
+            -webkit-user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1"><p id="p1">0</p></div>
+    <div id="div2"><p id="p2">0</p></div>
+    <div id="div3"><p id="p3">0</p></div>
+</body>
+</html>
+<script>
+
+    //1.闭包一
+    var oDiv1=document.getElementById('div1');
+    var oP1=document.getElementById('p1');
+    (function () {
+        var num1=0;
+        oDiv1.onclick=function () {
+            oP1.innerHTML=++num1;
+        };
+    })();
+
+    //2.闭包二
+    var oDiv2=document.getElementById('div2');
+    var oP2=document.getElementById('p2');
+    oDiv2.onclick=(function (i) {
+        return function(){
+            oP2.innerHTML=++i;
+        }
+    })(0);
+
+    //3.变量
+    var oDiv3=document.getElementById('div3');
+    var oP3=document.getElementById('p3');
+    oDiv3.count=0;
+    oDiv3.onclick=function () {
+        oP3.innerHTML=++oDiv3.count;
+    };
+
+</script>
