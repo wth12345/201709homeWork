@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //第一种
+    var ary = [2,3,1,77,44,22,100];
+//    var max = eval("Math.max(" + ary.toString() + ")");
+//    var min = eval("Math.min(" + ary.toString() + ")");
+//    console.log(max,min);
+    //第二种
+    //console.log(Math.max.apply(null, ary));
+    //console.log(Math.min.apply(null, ary));
+
+    //第三种
+    var max = ary[0];
+    var min = ary[0];
+    for (var i = 1; i < ary.length; i++) {
+        var cur = ary[i];
+        cur > max ? max = cur : null;
+        cur < min ? min = cur : null;
+    }
+    console.log(max,min);
+</script>

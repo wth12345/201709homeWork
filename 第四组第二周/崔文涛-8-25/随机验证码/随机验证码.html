@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div{
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            margin: 10px auto;
+            background: -webkit-linear-gradient(top left,#00b3ee,#ffff00,#cc0000);
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>
+<script>
+function inDex(){
+    var index="13erewfsdgfaggsdasgfdgsdfsd123456782q35467";
+   var str="";
+    var sjs=null;
+    for(i=0;i<4;i++){
+        sjs=Math.round(Math.random()*41);
+        str+=index[sjs];
+    }
+    return str;
+}
+   var DIV=document.getElementById("div");
+    DIV.innerHTML=inDex();
+</script>

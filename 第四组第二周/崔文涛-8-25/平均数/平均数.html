@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /////////////////////////////////////////////1
+        var ary=[34,5,7,22,12,10];
+        ary.sort(function (a,b) {
+            return a-b;
+        });
+        ary.pop();
+        ary.shift();
+        console.log((eval(ary.join("+"))/ary.length).toFixed(2));
+    /////////////////////////////////////////////2
+    function index() {
+        var ary = [];
+        for (var i = 0; i < arguments.length; i++) {
+            ary[i] = arguments[i];
+        }
+        ary.sort(function (a, b) {
+            return a - b;
+        });
+        ary.pop();
+        ary.shift();
+        return console.log((eval(ary.join("+")) /ary.length).toFixed(2));
+
+    }
+ index(34, 5, 7, 22, 12, 10);
+//////////////////////////////////////////////////////////////3
+    function index1() {
+    var ary=utils.listToArray(arguments);
+        ary.sort(function (a,b) {
+            return a-b;
+        });
+        ary.pop();
+        ary.shift();
+        return console.log((eval(ary.join("+")) /ary.length).toFixed(2));
+    }
+    index1(34, 5, 7, 22, 12, 10);
+</script>

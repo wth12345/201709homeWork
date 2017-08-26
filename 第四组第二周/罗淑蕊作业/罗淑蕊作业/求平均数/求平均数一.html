@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function aver(){
+    var ary=[]
+    for(var i=0;i<arguments.length;i++) {
+        ary[i]=arguments[i]
+   }
+    ary.sort(function (a,b) {
+        return a-b
+    })
+    ary.shift();
+    ary.pop();
+    var res=ary.join("+")
+   return (eval(ary.join("+"))/ary.length).toFixed()
+ }
+console.log(aver(12, 32, 32, 34, 25, 22, 23, 44));
+
+</script>
+</body>
+</html>

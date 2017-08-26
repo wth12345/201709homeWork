@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function aver() {
+    var ary=[].slice.call(arguments)
+    ary.sort(function (a,b) {
+        return a-b
+    })
+    ary.pop()
+    ary.shift()
+    return (eval(ary.join("+"))/ary.length).toFixed(2)
+
+
+}
+   console.log(aver(34, 25, 34, 35, 55, 44));
+</script>
+</body>
+</html>

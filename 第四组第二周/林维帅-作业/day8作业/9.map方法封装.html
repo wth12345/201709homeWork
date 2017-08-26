@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [1,2,20,30,45];
+    Array.prototype.myMap = function myMap(callback,context){
+        context = context || window;
+        if('map' in window) {
+            return this.map(callback,context);
+        }
+        var newAry = [];//用来存放回调函数的返回值
+        var res = null;//接收回调函数运行完的返回值
+        for(var i = 0; i < this.length;i++) {
+            res = callback.call(context,this[i],i,this);
+            newAry.push(res);
+        }
+        return newAry;
+    }
+    var obj = {};
+    var res = ary.myMap(function(item){
+        console.log(this);
+        return item+2
+    },obj);
+    console.log(res);
+</script>

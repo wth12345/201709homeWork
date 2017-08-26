@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,1,4,1,25,1,2,14,1,2,1,2,3,2,1,4,1,2,3,2,14,1,2,3,2,1,2,3];
+    function unique1(ary) {
+        var obj={};
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            if(obj[cur]===cur){
+                ary.splice(i,1);
+                i--;
+            }
+            obj[cur]=cur;
+        }
+        return ary;
+    }
+    console.log(unique1(ary));
+
+    function unique2(ary) {
+        for(var i=0;i<ary.length-1;i++){
+            for(var j=i+1;j<ary.length;j++){
+                if(ary[i]===ary[j]){
+                    ary.splice(j,1)
+                    j--;
+                }
+            }
+        }
+        return ary;
+    }
+
+    console.log(unique2(ary));
+</script>
+</body>
+</html>

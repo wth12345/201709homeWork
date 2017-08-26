@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../css1/reset.min.css">
+    <style type="text/css">
+        #div1{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            background-color: darkseagreen;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 50px;
+            margin: 50px auto;
+        }
+        p{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid lightyellow;
+            background-color: lightgoldenrodyellow;
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<p>认为我比吴亦凡帅的请点击</p>
+<div id="div1">0</div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("div1");
+    var n = 0;
+        ~(function (n) {
+            oDiv.onclick=function () {
+                this.innerHTML=++n;
+            }
+        })(n)
+</script>

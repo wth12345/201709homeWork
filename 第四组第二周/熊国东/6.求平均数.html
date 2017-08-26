@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求平均数</title>
+</head>
+<body>
+<script>
+    //1.
+    function average1() {
+        var max=Math.max.apply(this,arguments);
+        var min=Math.min.apply(this,arguments);
+        var total=null;
+        for(var i=0;i<arguments.length;i++){
+            total+=arguments[i];
+        }
+        return((total-min-max)/(arguments.length-2)).toFixed(2);
+    }
+    console.log(average1(12, 51, 263, 78, 4, 21, 54));
+
+
+    //2.
+    function average2() {
+        [].sort.call(arguments,function (a, b) {
+            return a-b;
+        });
+        [].pop.call(arguments);
+        [].shift.call(arguments);
+        return eval([].join.call(arguments,"+"))/arguments.length;
+    }
+    console.log(average2(12, 51, 263, 78, 4, 21, 54));
+
+    //3.
+    function average3() {
+        var ary=[].slice.call(arguments,0)
+        ary.sort(function (a, b) {
+            return a-b;
+        });
+        ary.pop();
+        ary.shift();
+        var total=null;
+        for(var i=0;i<ary.length;i++){
+            total+=ary[i];
+        }
+        return total/ary.length;
+    }
+    console.log(average3(12, 51, 263, 78, 4, 21, 54));
+</script>
+</body>
+</html>

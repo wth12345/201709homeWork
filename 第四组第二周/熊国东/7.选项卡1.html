@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #tab{
+            width:450px;
+            margin:100px auto;
+        }
+        #tab ul{
+            overflow: hidden;
+        }
+        #tab ul li{
+            width: 150px;
+            list-style:none;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+            background-color: gray;
+            float: left;
+            cursor: pointer;
+        }
+        #tab ul li.active{
+            background-color: darkslategray;
+        }
+        #tab div{
+            height:100px;
+            background: salmon;
+            display: none;
+        }
+        #tab div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="active">11111</li>
+        <li>22222</li>
+        <li>33333</li>
+    </ul>
+    <div class="active">11111111</div>
+    <div>22222222</div>
+    <div>33333333</div>
+</div>
+</body>
+</html>
+<script>
+    var oTab=document.getElementById("tab");
+    var oLis=oTab.getElementsByTagName("li");
+    var oDivs=oTab.getElementsByTagName("div");
+    for(var i=0;i<oLis.length;i++){
+        oLis[i].index=i;
+        oLis[i].onclick=function () {
+            changeTab(this.index);
+        }
+    }
+    function changeTab(n) {
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].className='';
+            oDivs[i].className="";
+        }
+        oLis[n].className="active";
+        oDivs[n].className="active"
+    }
+</script>

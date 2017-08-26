@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装map方法</title>
+</head>
+<body>
+<script>
+    var ary1 = [15, 13, 20, 45];
+    //map比forEach多了一步，callback有返回值，并且把返回值放在一个数组中，把新的数组作为map方法的返回值
+    Array.prototype.myMap = function (callback, context) {
+        context = context || window;
+        if ([].map) {
+            //如果window中有map方法，则直接调用map方法
+            return this.map(callback, context);
+
+        }
+         var ary=[];
+         var res=null;//接收回调函数执行完的返回值
+         for(var i=0;i<this.length;i++){
+             res=callback.call(context,this[i],i,this);
+             ary.push(res);//map方法会把callback的返回值放在一个数组中并返回
+         }
+         return ary;
+    };
+    var obj = {};
+    var res = ary1.myMap(function (item) {
+        console.log(this);
+        //console.log(item);
+        return item + 2;//myMap中的res会接收callback的返回值
+    }, obj);
+    console.log(res);
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,div,ul,li{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        ul li{
+            list-style: none;
+        }
+        #tab1,#tab2,#tab3{
+            margin: 10px auto 0;
+            width: 500px;
+        }
+        #tab1 ul,#tab2 ul,#tab3 ul{
+            position: relative;
+            top: 1px;
+            z-index: 100;
+
+        }
+        #tab1 ul li,#tab2 ul li,#tab3 ul li{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border:1px solid #ddd;
+            float: left;
+            margin-right: 10px;
+            cursor:pointer;
+        }
+        #tab1 ul li.select, #tab2 ul li.select, #tab3 ul li.select{
+            background: -webkit-linear-gradient(top left,#cc0000,#00b3ee,#ffff00);
+        }
+        #tab1 div, #tab2 div,#tab3 div{
+            display: none;
+            clear: both;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background: -webkit-linear-gradient(top left,#cc0000,#00b3ee,#ffff00);
+        }
+        #tab1 div.select,#tab2 div.select,#tab3 div.select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab1">
+    <ul>
+        <li class="select">我的关注</li>
+        <li>推荐</li>
+        <li>导航</li>
+    </ul>
+    <div class="select">关注内容</div>
+    <div>推荐内容</div>
+    <div>导航内容</div>
+</div>
+<div id="tab2">
+<ul>
+    <li class="select">我的关注</li>
+    <li>推荐</li>
+    <li>导航</li>
+</ul>
+<div class="select">关注内容</div>
+<div>推荐内容</div>
+<div>导航内容</div>
+</div>
+<div id="tab3">
+    <ul>
+        <li class="select">我的关注</li>
+        <li>推荐</li>
+        <li>导航</li>
+    </ul>
+    <div class="select">关注内容</div>
+    <div>推荐内容</div>
+    <div>导航内容</div>
+</div>
+
+</body>
+</html>
+<script>
+    function Tab(option){
+        this.id=option.id;
+        this.select=option.select||0;
+        this.init();
+    }
+        Tab.prototype.init= function () {
+        this.getEle();
+        this.bind();
+        this.changeTab(this.select);
+    };
+   Tab.prototype.getEle= function () {
+        var oTab=document.getElementById(this.id);
+        this.oLis=oTab.getElementsByTagName("li");
+        this.oDiv=oTab.getElementsByTagName("div")
+    };
+    Tab.prototype.bind= function () {
+        var that=this;
+        for(var i=0;i<this.oLis.length;i++){
+            (function (i) {
+                that.oLis[i].onclick= function () {
+                    that.changeTab(i);
+                };
+            })(i);
+        }
+    };
+    Tab.prototype.changeTab= function (n) {
+        for(var i=0;i<this.oLis.length;i++){
+            this.oLis[i].className="";
+            this.oDiv[i].className="";
+        }
+        this.oLis[n].className="select";
+        this.oDiv[n].className="select";
+    };
+    new Tab({id:"tab1"});
+    new Tab({id:"tab2",select:1});
+    new Tab({id:"tab3",select:2});
+</script>

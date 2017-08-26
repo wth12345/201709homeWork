@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最大值最小值</title>
+</head>
+<body>
+<script>
+    var ary = [1, 13, 24, 51, 63, 19, 68, 47, 21, 37];
+    //1.假设法
+    function getMaxAndMin1(ary) {
+        var max = ary[0];
+        var min = ary[0];
+        var newAry = [];
+        for (var i = 1; i < ary.length; i++) {
+            ary[i] > max ? max = ary[i] : null;
+            ary[i] < min ? min = ary[i] : null;
+        }
+        newAry.push(max, min);
+        return newAry;
+    }
+    console.log(getMaxAndMin1(ary));
+
+    //2.sort排序法
+    function getMaxAndMin2(ary) {
+        var newAry=[];
+        ary.sort(function (a, b) {
+            return a-b;
+        });
+        var min=ary[0];
+        var max=ary[ary.length-1];
+        newAry.push(max,min);
+        return newAry;
+    }
+    console.log(getMaxAndMin2(ary));
+
+    //3.eval方法
+    function getMaxAndMin3(ary) {
+        var newAry=[];
+        var max=eval("Math.max("+ary.toString()+")");
+        var min=eval("Math.min("+ary.toString()+")");
+        newAry.push(max,min);
+        return newAry;
+    }
+    console.log(getMaxAndMin3(ary));
+
+    //4.call方法
+    function getMaxAndMin4(ary) {
+        var newAry=[];
+        var max=Math.max.apply(null,ary);
+        var min=Math.min.apply(null,ary);
+        newAry.push(max,min);
+        return newAry;
+    }
+    console.log(getMaxAndMin4(ary));
+
+
+</script>
+</body>
+</html>

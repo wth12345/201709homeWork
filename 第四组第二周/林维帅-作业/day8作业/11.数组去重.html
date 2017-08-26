@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    第一种
+//    var ary = [5,5,12,11,5,6,66,22];
+//    for(var i = 0;i<ary.length-1;i++){
+//        var cur = ary[i];
+//        for(var j = i+1;j<ary.length;j++){
+//            if(cur==ary[j]){
+//                ary.splice(j,1);
+//                j--;
+//            }
+//        }
+//    }
+//    console.log(ary);
+
+    var obj = {};
+    var ary = [5,5,12,11,5,6,66,22];
+    for(var i = 0;i<ary.length;i++){
+        var cur = ary[i];
+        if(obj[cur]===cur){
+            ary.splice(i,1);
+            i--;
+            continue;
+        }
+        obj[cur] = cur;
+    }
+    console.log(ary);
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四个不重复的随机验证码</title>
+    <style>
+        #div1{
+            width:500px;
+            height: 100px;
+            line-height:100px;
+            text-align: center;
+            margin: 100px auto;
+            font-size: 50px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    function getRanNum() {
+        var str="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var num=null;
+        var ranStr="";
+        for(var i=0;i<4;i++){
+            num=Math.round(Math.random()*61);
+            if(ranStr.indexOf(str[num])===-1){
+                ranStr+=str[num];
+                continue;
+            }
+            i--;
+        }
+        return ranStr;
+    }
+    var oDiv=document.getElementById("div1");
+    oDiv.innerHTML=getRanNum();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#div1{
+    cursor:pointer;
+    font-family:楷体;
+    color:darkorchid;
+    font-size: 51px;
+    text-align: center;
+    height: 200px;
+    background: -webkit-linear-gradient(right bottom,cornflowerblue,darkgreen,brown);
+}
+#span1{
+    color:chartreuse;
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+    font-family: 方正兰亭超细黑简体;
+}
