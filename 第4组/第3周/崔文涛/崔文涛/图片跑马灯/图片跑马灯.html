@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            border: 5px dashed blue;
+            margin: 0 auto;
+            width: 800px;
+            height: 200px;
+            overflow-x: auto;
+            background: -webkit-linear-gradient(left,#000000,#00b3ee,#ffff00,#cc0000,#555555,#cccccc);
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <li><img src="1.jpg"></li>
+        <li><img src="2.jpg"></li>
+        <li><img src="3.jpg"></li>
+        <li><img src="4.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("div1");
+    var oUl=oDiv.getElementsByTagName("ul")[0];
+    var oLis=oUl.getElementsByTagName("li");
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=oLis.length*oLis[0].offsetWidth+"px";
+    window.setInterval(function () {
+     var C=oDiv.scrollLeft++;
+        if(C==oUl.offsetWidth/2){
+            oDiv.scrollLeft=0;
+        }
+    },10)
+
+</script>

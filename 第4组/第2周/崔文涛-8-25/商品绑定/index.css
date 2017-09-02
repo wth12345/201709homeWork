@@ -1,0 +1,36 @@
+/*#d1{*/
+/*float: left;*/
+/*}*/
+
+#d2 {
+    width: 100%;
+    background: -webkit-linear-gradient(top left,#555555,#999999,#cc0000) ;
+    left: 40px;
+    line-height: 40px;
+    font-size: 13px;
+    color: #000000;
+}
+#d2 span{
+    float: left;
+}
+#d2 a{
+    font-size: 11px;
+    color: #999999;
+
+    margin-left: 10px;
+}
+#d1 ul{
+    width: 1200px;
+}
+#d1 ul li{
+    padding: 10px;
+    width: 200px;
+    height: 220px;
+    background: -webkit-linear-gradient(right bottom,palegreen,blue,red);
+    float: left;
+    margin: 10px;
+}
+#d1 ul li img{
+    width: 200px;
+    height: 150px;
+}

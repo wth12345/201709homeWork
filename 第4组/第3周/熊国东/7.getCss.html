@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getCss</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+            font-size: 14px;
+            margin: 50px auto;
+            line-height: 100px;
+            text-align: center;
+            background: black;
+            opacity:0.4;
+            filter:alpha(opacity=30);
+        }
+    </style>
+</head>
+<body>
+<div>diss</div>
+<script>
+    function getCss(obj, attr) {
+        var res = null;
+        if (window.getComputedStyle) {
+            res = window.getComputedStyle(obj, null)[attr];
+        } else {
+            if (attr === "opacity") {
+                res = obj.currentStyle["filter"];
+                var reg = /^alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)$/i;
+                res = reg.test(res) ? RegExp.$1 / 100 : 1;
+            } else {
+                res = obj.currentStyle[attr];
+            }
+        }
+        reg = /^-?\d+(?:\.\d+)?(?:px|pt|rem|em)?$/i;
+        return reg.test(res) ? parseFloat(res) : res;
+    }
+    var oDiv=document.getElementsByTagName("div")[0];
+    console.log(getCss(oDiv, "fontSize"));
+    console.log(getCss(oDiv, "border"));
+    console.log(getCss(oDiv, "opacity"));
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则</title>
+</head>
+<body>
+<script>
+    //1.有效数字的规则
+    var reg1=/^[+-]?(\d|[1-9]\d+)(\.\d+)?$/;
+    console.log(reg1.test(12.32));
+
+    //2.匹配数字18-65
+    var reg2=/^(1[89]|[2-5]\d|6[0-5])$/;
+    console.log(reg2.test(18));
+
+    //3.去除首尾空格
+    var str="  sdfafasdf     ";
+    var reg3=/\s+/g;
+    console.log(str.replace(reg3, ""));
+</script>
+</body>
+</html>

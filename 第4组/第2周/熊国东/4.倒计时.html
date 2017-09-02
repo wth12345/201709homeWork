@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        #div1{
+            height: 50px;
+            line-height:50px;
+            text-align: center;
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+
+
+    function getTime() {
+        var now=new Date();
+        var target=new Date("2017-08-26 09:30:00");
+        var mSeconds=target-now;
+        var hours=Math.floor(mSeconds/(60*60*1000));
+        mSeconds=mSeconds-hours*60*60*1000;
+        var minutes=Math.floor(mSeconds/(60*1000));
+        mSeconds=mSeconds-minutes*60*1000;
+        var seconds=Math.floor(mSeconds/1000);
+        function zero(n) {
+            if(n<10){
+                return "0"+n;
+            }else{
+                return n;
+            }
+        }
+        var oDiv=document.getElementById("div1");
+
+        oDiv.innerHTML="倒计时:"+zero(hours)+"小时"+zero(minutes)+"分"+zero(seconds)+"秒";
+    }
+    setInterval(function () {
+        getTime();
+    },1000)
+
+
+
+
+
+
+
+
+
+
+</script>

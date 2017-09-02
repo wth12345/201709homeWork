@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary=[23,56,45,23,8,76,9];
+    //1
+//    console.log(Math.max.apply(null, ary));
+//    console.log(Math.min.apply(null, ary));
+    //2
+//    var max = ary[0];
+//    var min = ary[0];
+//    for (var i = 1; i < ary.length; i++) {
+//        var cur = ary[i];
+//        cur > max ? max = cur : null;
+//        cur < min ? min = cur : null;
+//    }
+//    console.log(max);
+//    console.log(min);
+    //3
+    var max = eval("Math.max(" + ary.toString() + ")");
+    var min = eval("Math.min(" + ary.toString() + ")");
+    console.log(max);
+    console.log(min);
+
+</script>

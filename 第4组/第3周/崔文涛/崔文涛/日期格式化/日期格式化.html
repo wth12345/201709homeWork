@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str="2017-08-30 10:54:30";
+    var tempStr="{0}年{1}月{2}日 {3}时{4}分{5}秒";
+    var reg=/\d+/g;
+    var ary=str.match(reg);
+//    console.log(ary);
+ tempStr=tempStr.replace(/{(\d)}/g, function (a,b) {
+        return ary[b];
+    })
+    console.log(tempStr);
+</script>

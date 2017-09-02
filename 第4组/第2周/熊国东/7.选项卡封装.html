@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡2</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #tab1{
+            width:450px;
+            margin:100px auto;
+        }
+        #tab1 li{
+            list-style:none;
+            width: 150px;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+            background-color: gray;
+            float: left;
+            cursor: pointer;
+        }
+        #tab1 li.active{
+            background-color: darkslategray;
+        }
+        #tab1 div{
+            height:100px;
+            background-color: salmon;
+            display: none;
+        }
+        #tab1 div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab1">
+    <ul>
+        <li class="active">11111</li>
+        <li>22222</li>
+        <li>33333</li>
+    </ul>
+    <div class="active">11111111</div>
+    <div>22222222</div>
+    <div>33333333</div>
+</div>
+</body>
+</html>
+<script>
+    function Tab(option) {
+        this.id=option.id;
+        this.select=option.select||0;
+        this.init();
+    }
+    Tab.prototype.init=function () {
+        this.getEle();
+        this.bind();
+        this.changeTab(this.select);
+    };
+    Tab.prototype.getEle=function () {
+        var oTab=document.getElementById(this.id);
+        this.oLis=oTab.getElementsByTagName("li");
+        this.oDivs=oTab.getElementsByTagName("div");
+    };
+
+    Tab.prototype.bind=function () {
+        var that=this;
+        for(var i=0;i<this.oLis.length;i++){
+            (function (i) {
+                that.oLis[i].onclick=function () {
+                    that.changeTab(i);
+                }
+            })(i);
+        }
+    };
+    Tab.prototype.changeTab=function (n) {
+        for(var i=0;i<this.oLis.length;i++){
+            this.oLis[i].className="";
+            this.oDivs[i].className="";
+        }
+        this.oLis[n].className="active";
+        this.oDivs[n].className="active";
+    };
+    new Tab({id:"tab1",select:0})
+</script>

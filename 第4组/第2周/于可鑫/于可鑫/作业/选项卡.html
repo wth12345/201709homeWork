@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #tab{
+            width: 304px;
+            margin: 20px auto;
+        }
+        #tab ul{
+            overflow: hidden;
+            border-right: 1px solid green;
+        }
+        #tab ul li{
+            width: 100px;
+            border-left:1px solid green;
+            border-top:1px solid green;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            background: pink;
+            color: #fff;
+        }
+
+        #tab div{
+            border:1px solid green;
+            height: 200px;
+            display: none;
+        }
+        #tab ul li.selectLi{
+            background: palegreen;
+        }
+        #tab div.selectDiv{
+            display: block;
+            background: palegreen;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="selectLi" >我的关注</li>
+        <li >推荐</li>
+        <li >导航</li>
+    </ul>
+    <div class="selectDiv">我的关注的内容</div>
+    <div >推荐的内容</div>
+    <div >导航的内容</div>
+</div>
+ </body>
+</html>
+<script>
+
+//    var oTab = document.getElementById("tab");
+//    var oLis = oTab.getElementsByTagName("li");
+//    var oDivs = oTab.getElementsByTagName("div");
+    //1
+//    for(var i = 0;i<oLis.length;i++){
+//        oLis[i].zhufeng = i;
+//        oLis[i].onclick = function(){
+//            changeTab(this.zhufeng);
+//        }
+//    }
+//    var prevIndex = 0;
+//    function changeTab(n){
+//        oLis[prevIndex].className = "";
+//        oDivs[prevIndex].className = "";
+//        oLis[n].className ='selectLi';
+//        oDivs[n].className = "selectDiv";
+//        prevIndex = n;
+//    }
+    //2
+//    for(var i = 0;i<oLis.length;i++){
+//        (function(i){
+//            oLis[i].onclick = function(){
+//                changeTab(i);
+//            }
+//        })(i);
+//
+//    }
+//    function changeTab(n){
+//        for(var i = 0;i<oLis.length;i++){
+//            oLis[i].className = "";
+//            oDivs[i].className = "";
+//        }
+//        oLis[n].className = "selectLi";
+//        oDivs[n].className = "selectDiv";
+//    }
+    //3
+    function Tab(option){
+        this.id = option.id;
+        this.select = option.select || 0;
+        this.init()
+    }
+    Tab.prototype.init = function(){
+        this.getEle();
+        this.bind();
+        this.changeTab(this.select);
+    }
+    Tab.prototype.getEle = function(){
+        var oTab = document.getElementById(this.id);
+        this.oLis = oTab.getElementsByTagName("li");
+        this.oDivs  = oTab.getElementsByTagName("div");
+    }
+    Tab.prototype.bind = function(){
+        var that = this;
+        for(var i = 0;i<this.oLis.length;i++){
+            (function(i){
+                that.oLis[i].onclick = function(){
+                    that.changeTab(i);
+                }
+            })(i);
+        }
+    }
+    Tab.prototype.changeTab = function(n){
+        for(var i = 0;i<this.oLis.length;i++){
+            this.oLis[i].className = "";
+            this.oDivs[i].className = "";
+        }
+        this.oLis[n].className = "selectLi";
+        this.oDivs[n].className = "selectDiv";
+    }
+
+    new Tab({id:"tab"});
+    </script>

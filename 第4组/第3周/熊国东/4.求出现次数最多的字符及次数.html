@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求出现次数最多的字符以及次数</title>
+</head>
+<body>
+<script>
+    var str="aafjkhdafkjaoifdajknefhdfakndlakvhdfkajndflkhadkjabndkvhakjna";
+    //方法1
+    function getMaxLetter1(str) {
+        var obj={};
+        for(var i=0;i<str.length;i++){
+            var cur=str[i];
+            if(obj[cur]){
+                obj[cur]++;
+            }else{
+                obj[cur]=1;
+            }
+        }
+        var max=0;
+        var maxStr="";
+        for(key in obj){
+            if(obj[key]>max){
+                max=obj[key];
+                maxStr=key;
+            }else if(obj[key]===max){
+                maxStr+=","+key;
+            }
+        }
+        return {
+            max:max,
+            maxStr:maxStr
+        }
+    }
+    console.log(getMaxLetter1(str));
+
+
+    //方法2
+    function getMaxLetter2(str) {
+        var ary=str.split("");
+        ary.sort(function (a, b) {
+            return a.localeCompare(b);
+        });
+        str=ary.join("");
+        var reg=/(\w)\1*/g;
+        var max=0;
+        var maxStr="";
+        str.replace(reg,function ($0,$1) {
+            if($0.length>max){
+                max=$0.length;
+                maxStr=$1;
+            }else if($0.length===max){
+                maxStr+=","+$1
+            }
+        });
+        return {
+            max:max,
+            maxStr:maxStr
+        }
+    }
+    console.log(getMaxLetter2(str));
+
+</script>
+</body>
+</html>

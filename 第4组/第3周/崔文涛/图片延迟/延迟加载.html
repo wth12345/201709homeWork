@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 1110px auto;
+            background: #eee;
+            text-align: center;
+            line-height: 200px;
+        }
+
+
+        div img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="banner"><img src="default.gif" C="1.jpg"/></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<!--<script>-->
+    <!--var oImg=document.getElementsByTagName("img")[0];-->
+    <!--window.setTimeout(function () {-->
+        <!--var tImg=new Image;-->
+        <!--tImg.src=oImg.getAttribute("C");-->
+        <!--tImg.onload= function () {-->
+            <!--oImg.src=this.src;-->
+            <!--tImg=null;-->
+        <!--}-->
+    <!--},1000)-->
+<!--</script>-->
+<script>
+    var banner=document.getElementById("banner");
+    var oImg=banner.getElementsByTagName("img")[0];
+
+    window.onscroll= function () {
+        if(banner.isLoad){
+            return;
+        }
+        var A=banner.offsetHeight+utils.offset(banner).t;
+        var B=utils.win("clientHeight")+utils.win("scrollTop");
+        if(A<B){
+            var tImg=new Image;
+            tImg.src=oImg.getAttribute("C");
+            tImg.onload= function () {
+                console.log("ok");
+                oImg.src=this.src;
+                tImg=null;
+            };
+            banner.isLoad=true;
+        }
+    }
+</script>

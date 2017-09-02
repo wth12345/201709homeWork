@@ -1,0 +1,54 @@
+body{
+    height: 100%;
+    font-size: 14px;
+    background-color:#F4F4F4 ;
+    color: #555;
+}
+.box{
+    width: 1200px;
+    margin: 0 auto;
+}
+.top{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+}
+.top span,.top a{
+    float:left;
+}
+.top span {
+    width: 90px;
+    text-align: center;
+}
+.top a{
+    padding: 0 15px;
+}
+.top a:hover{
+    color: red;
+}
+.list li{
+    float:left;
+    width: 196px;
+    padding:0 10px;
+    margin: 15px 0 15px 15px;
+    background-color: white;
+    border:1px solid white;
+}
+.list li img{
+    width: 100%;
+}
+.list li:hover{
+    border :1px solid red;
+}
+.list li span {
+    display: block;
+    line-height: 40px;
+}
+
+
+
+
+
+
+
+

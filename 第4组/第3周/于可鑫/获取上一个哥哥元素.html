@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li id="li2">222</li>
+    <li>333</li>
+</ul>
+</body>
+</html>
+<script>
+    var oLis=document.getElementById("li2");
+    function pre(ele) {
+        var cur=ele.previousSibling;
+        while (cur){
+            if(cur.nodeType==1){
+                return cur
+            }
+            cur=cur.previousSibling;
+        }
+        return null
+    }
+    console.log(pre(oLis));
+</script>

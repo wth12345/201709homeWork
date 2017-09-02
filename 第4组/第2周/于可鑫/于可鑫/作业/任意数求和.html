@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function sum() {
+        var total=null;
+        for(var i=0;i<arguments.length;i++){
+            if(typeof arguments[i]==="boolean"){
+                continue;
+            }
+            var cur=Number(arguments[i]);
+            if(!isNaN(cur)){
+                total+=cur;
+            }
+        }
+        return total;
+    }
+    console.log(sum(22,"14","12px",3,"11",true));
+</script>

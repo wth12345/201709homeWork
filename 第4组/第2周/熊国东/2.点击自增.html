@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击自增</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            line-height:100px;
+            text-align: center;
+            background-color: pink;
+            border: 1px solid darkslategray;
+            border-radius: 50px;
+            font-size: 40px;
+            margin: 100px auto;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">0</div>
+<script>
+    var oDiv=document.getElementById("div1");
+    var n=0;
+    /*oDiv.onclick=function () {
+        this.innerHTML=++n;
+    };*/
+
+    /*~(function (n) {
+        oDiv.onclick=function () {
+            this.innerHTML=++n;
+        }
+    })(n);*/
+
+    oDiv.onclick=(function () {
+        var n=0;
+        return function () {
+            this.innerHTML=++n;
+        };
+
+    })();
+
+
+
+</script>
+</body>
+</html>

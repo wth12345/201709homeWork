@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function F(){
+        this.x = 50;
+        this.y = 100;
+    }
+    F.prototype.fn = function(){
+        console.log(this.x);
+    };
+    var f = new F();
+    function hasPublicProperty(obj,attr){
+        return   attr in obj&&!obj.hasOwnProperty(attr);
+    }
+    console.log(hasPublicProperty(f, "x"));
+</script>

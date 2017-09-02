@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../css1/reset.min.css">
+    <style>
+        .div1{
+            width: 800px;
+            height: 200px;
+            border:5px dashed black;
+            margin: 20px auto;
+            overflow-x: auto;
+            overflow-y:hidden ;
+            overflow: hidden;
+        }
+        .div1 ul{
+            overflow: hidden;
+        }
+        .div1 li{
+            height: 200px;
+            width: 200px;
+            float: left;
+        }
+        .div1 ul li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="div1" id="div1">
+    <ul>
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("div1");
+    var oUl=oDiv.getElementsByTagName("ul")[0];
+    var oLis=oUl.getElementsByTagName("li");
+    //没有溢出内容，scrollLeft最大值最小值是0，这是去改变scrollLeft是不起作用的
+
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=oLis.length*oLis[0].offsetWidth+"px";
+    var sTime=window.setInterval(function () {
+        oDiv.scrollLeft++;
+        if(oDiv.scrollLeft==oUl.offsetWidth/2){
+            oDiv.scrollLeft=0
+        }
+    },5);
+
+
+    oDiv.onclick=function () {
+        if(sTime){
+            window.clearInterval(sTime);
+            sTime=null;
+        }else{
+            sTime=window.setInterval(function () {
+                oDiv.scrollLeft++;
+                if(oDiv.scrollLeft==oUl.offsetWidth/2){
+                    oDiv.scrollLeft=0
+                }
+            },5);
+        }
+    }
+</script>
