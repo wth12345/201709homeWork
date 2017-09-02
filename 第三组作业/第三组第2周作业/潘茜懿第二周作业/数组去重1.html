@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [1, 2, 3, 4, 3, 4, 5, 3, 3, 2, 4]
+    for(var i =0;i<ary.length-1;i++){
+        var cur = ary[i];
+        for(var j=i+1;j<ary.length;j++){
+            if(cur==ary[j]){
+                ary.splice(j,1);
+                j--;
+            }
+
+        }
+    }
+    console.log(ary);
+</script>

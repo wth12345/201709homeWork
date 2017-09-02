@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击自增三种方法</title>
+    <style>
+        #div{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border: 1px solid purple;
+            background: pink;
+            border-radius: 50%;
+            font-size: 50px;
+        }
+        #butn{
+            height: 40px;
+            width: 60px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid purple;
+            margin:  50px 0 0 60px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div">0</div>
+<div id="butn">点击</div>
+<script>
+    var oDiv = document.getElementById("div");
+    var oButton = document.getElementById("butn");
+
+/* 第一种方法
+  oButton.onclick = function () {
+
+        oDiv.innerHTML = Number(oDiv.innerHTML)+ 1;
+    };*/
+
+/* 第二种方法
+   var i  = 0;
+    oButton.onclick = function () {
+        i++;
+        oDiv.innerHTML = i ;
+    }*/
+var num = 0;
+    oButton.onclick = function () {
+        num += 1;
+        oDiv.innerHTML = num;
+    }
+
+
+</script>
+</body>
+</html>

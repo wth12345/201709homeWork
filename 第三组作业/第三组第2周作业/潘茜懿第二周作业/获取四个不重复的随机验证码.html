@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机验证码</title>
+    <style>
+        #box{
+            height: 100px;
+            width: 100px;
+           border-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var str = "123456789";
+    console.log(str.length);
+    var str1 = "";
+    var i = 0;
+    var obj = {};
+    var objIndex = null;
+    while(i  < 4){
+        var temp = str[Math.round(Math.random()*(10 - 0))];
+
+        objIndex = temp;
+        if(obj[objIndex] === objIndex){
+            continue;
+        }
+        obj[objIndex] = objIndex;
+        str1 += temp;
+        i ++;
+    }
+    var box = document.getElementById("box");
+    box.innerHTML = str1;
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任意个数求和</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function sum() {
+        var sum = 0;
+        for(var i = 0;i < arguments.length;i ++){
+            if(!isNaN(parseFloat(arguments[i]))){
+                sum += parseFloat(arguments[i]);
+            }
+
+        }
+        return sum;
+    }
+
+    console.log(sum(1, 2, 3, 4, 5, "6s", "aa"));
+</script>

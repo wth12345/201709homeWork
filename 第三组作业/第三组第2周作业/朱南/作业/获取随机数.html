@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tab"></div>
+<button id="but">点击</button>
+<script>
+    ary = "123456789"
+    var oDiv = document.getElementById("tab");
+    var oBu = document.getElementById("but");
+    var num =null;
+    var str = null;
+    oBu.onclick =  function () {
+        for(var i =0;i<4;i++){
+            num =Math.round(Math.random()*(ary.length-1))
+            oDiv.innerHTML =  ary.substr(num,1);
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

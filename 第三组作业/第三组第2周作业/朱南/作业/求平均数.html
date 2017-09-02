@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平均数,三种方法</title>
+</head>
+<body>
+<script>
+    function averageNum() {
+        var num = null;
+        var ary = [];
+        try{
+           ary = [].slice.call(arguments,0);
+
+        }catch(e){
+            for(var i= 0;i<ary.length;i++){
+                ary[i] = arguments[i];
+            }
+        }
+        ary.sort(function (a,b) {
+            return a-b;
+        })
+        console.log(ary);
+        //NO.1
+/*        for(var i =0;i<ary.length;i++){
+        num += ary[i]
+        }
+        num - ary[i] - ary[ary.length-1];
+        return num ;*/
+        //NO.2
+/*        eval("num = " + ary.join("+") +"-ary[0]-ary[ary.length-1]");
+        return num;*/
+        //NO.3
+
+       // console.log((ary.join("+")));;
+        eval("num = " + ary.join("+"));
+       num =  num - Math.max.apply(null,ary);
+       num =  num - Math.min.apply(null,ary);
+
+        return num;
+    }
+    console.log(averageNum(2, 13, 43, 32, 98, 34));
+
+</script>
+</body>
+</html>

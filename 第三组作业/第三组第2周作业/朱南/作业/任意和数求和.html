@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任意个数求和</title>
+</head>
+<body>
+<script>
+    function numSum() {
+        var num = 0;
+    for(var i = 0;i<arguments.length;i++){
+        if(typeof (arguments[i]) =="number"&& !isNaN(arguments[i]))num += arguments[i];
+    }
+    return num;
+    }
+
+    console.log(numSum(11, 12, 23, 12, 32,"sd",1));
+</script>
+
+</body>
+</html>

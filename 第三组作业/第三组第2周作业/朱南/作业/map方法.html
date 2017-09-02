@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.myMap = function (callback,context) {
+        context = context || window;
+        var ary = []
+        if([].map){//某些浏览器不支持“map” in window
+
+            return this.map(callback,context);
+        }
+        for (var i = 0;i<this.length;i++){
+            ary.push(callback.call(context,this[i],i,this));
+        }
+        return ary;
+    }
+</script>
+</body>
+</html>
