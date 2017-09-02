@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1,#div2{
+            color: brown;
+            font-family: 方正兰亭超细黑简体;
+            text-align: center;
+            line-height: 200px;
+            width: 200px;
+            height: 200px;
+            border-radius:50%;
+            margin: 10px 20px;
+            background: -webkit-linear-gradient(top,#cc0000,#ffff00,#00b3ee,#000000);
+        }
+    </style>
+</head>
+<body>
+<div id="div1">长风破浪会有时</div>
+<div id="div2">直挂云帆济沧海</div>
+</body>
+</html>
+<script>
+    var oDiv1=document.getElementById("div1");
+    console.log(window.getComputedStyle(div1, null)["background"]);
+    /**
+     *
+     *
+     *
+     *
+     *
+     *
+     * IE和标准浏览器都兼容的方法：
+     */
+    function getCss(ele,attr){
+        try{
+            var res=window.getComputedStyle(ele,null)[attr];
+        }catch(e){
+            res=ele.currentStyle[attr];
+        }
+        return res;
+    }
+    console.log(getCss(div2, "width"));
+
+</script>
+<script>
+    /**
+     * IE和标准浏览器都兼容的方法+去单位+返回数值：
+     *
+     */
+    function getCss(ele,attr){
+        if("getComputedStyle" in window){
+           var res=window.getComputedStyle(ele,null)[attr];
+        }else{
+            res=ele.currentStyle[attr];
+        }
+        var reg=/^[+-]?(?:\d|[1-9]\d+)(?:\.\d+)?(px|rem|em|pt)?$/i;
+        return reg.test(res)?parseFloat(res):res;
+    }
+    console.log(getCss(div1, "height"));
+    console.log(getCss(div1, "margin"));
+
+</script>

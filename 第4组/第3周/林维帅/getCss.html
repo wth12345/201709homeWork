@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 500px;
+            color: black;
+            background-color: #bdd6e8;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" >lin</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1")
+    function getCss(ele,attr){
+        var res = null;
+        if(typeof getComputedStyle =="function"){
+            res = window.getComputedStyle(ele,null)[attr];
+        }else{
+            if(attr=="opacity"){
+                res = ele.currentStyle.filter;
+                var reg = /^alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)$/;
+                res = reg.test(res) ? RegExp.$1/100 : 1;
+
+            }else{
+                res =  ele.currentStyle[attr];
+            }
+        }
+        var reg = /^[+-]?(?:\d+(?:\.\d+)?)(?:px|pt|rem|em)?$/i;
+        return  reg.test(res)?parseFloat(res):res;
+    }
+    console.log(getCss(oDiv, "color"));
+    console.log(getCss(oDiv, "width"));
+</script>

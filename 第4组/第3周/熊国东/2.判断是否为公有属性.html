@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判读是否为公有属性</title>
+</head>
+<body>
+<script>
+    function hasPublicProperty(obj, attr) {
+        return attr in obj && !obj.hasOwnProperty(attr);
+    }
+    var obj={};
+    console.log(hasPublicProperty(obj, "hasOwnProperty"));
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>win</title>
+    <style>
+        .div1{
+            height:2000px;
+            width:300px;
+            margin:0 auto;
+            border:5px solid red;
+            padding:15px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="div1" id="div1">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur delectus dicta distinctio ducimus ex nihil voluptatibus. Adipisci enim illo ipsa ipsam labore libero odio, perferendis quisquam rerum sequi tempora veritatis.
+</div>
+
+<script>
+    function win(attr,value) {
+        if(!value){
+            return document.documentElement[attr]||document.body[attr];
+        }else{
+            document.documentElement[attr]=value;
+            document.body[attr]=value;
+        }
+    }
+    var oDiv=document.getElementById("div1");
+    console.log(win("scrollTop"));
+    win("scrollTop",1230);
+</script>
+</body>
+</html>

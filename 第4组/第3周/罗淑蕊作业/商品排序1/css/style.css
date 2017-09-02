@@ -1,0 +1,42 @@
+html body{
+    background-color: #999999;
+}
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.wrap .menu{
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    font-size: 14px;
+    color:#999;
+}
+.wrap .menu span{
+    margin-left: 20px;
+}
+.wrap .menu a{
+    color: #cacaca;
+    margin-left: 20px;
+}
+.list{
+    margin-top: 20px;
+    overflow: hidden;
+    margin-left: -15px;
+}
+.list li{
+    float: left;
+    width: 224px;
+    background-color: white;
+    margin-left: 19px;
+    margin-top: 18px;
+}
+.list li img{
+    width: 100%;
+}
+.list li span{
+    display: block;
+    margin-bottom:10px;
+    margin-left: 10px;
+}

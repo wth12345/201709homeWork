@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /**
+     * 思路一
+     * 对象不重名特征+假设法
+     * @type {string}
+     */
+    var str="aaaccccccbbbddaaa";
+    var obj={};
+for(var i=0;i<str.length;i++){
+    cur=str[i];
+    if(obj[cur]){
+        obj[cur]=obj[cur]+1;
+    }else{
+        obj[cur]=1;
+    }
+}
+    console.log(obj);
+    var max=0;
+    var maxStr="";
+ for(attr in obj){
+     if(obj[attr]>max){
+         max=obj[attr];
+         maxStr=attr;
+     }else if(obj[attr]==max){
+         maxStr+=","+attr;
+     }
+ }
+    console.log(max, maxStr);
+</script>
+<script>
+    var str="aaaccccccbbbddaaa";
+    str=str.split("").sort(function (a,b) {
+        return a.localeCompare(b);
+    }).join("");
+    console.log(str);
+    var max=0;
+    var maxStr="";
+    var reg=/(\w)\1*/g;
+    str.replace(reg, function (a,b) {
+//        console.log(a, b);
+        if(a.length>max){
+            max= a.length;
+            maxStr=b;
+        }else if(a.length==max){
+            maxStr+=","+b;
+        }
+    });
+    console.log(max, maxStr);
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">123</div>
+<div id="div2">321</div>
+<div id="div3">1234567</div>
+</body>
+</html>
+<script>
+
+    var oDiv2=document.getElementById("div2");
+    function pre(ele){
+        var X=ele.previousSibling;
+        while(X){
+            if(X.nodeType==1){
+                return X;
+            }
+            X= X.previousSibling;
+        }
+    }
+    console.log(pre(oDiv2));
+</script>

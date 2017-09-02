@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片跑马灯</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .wrap{
+            width:800px;
+            height:200px;
+            border:2px dashed red;
+            margin:50px auto;
+            overflow: hidden;
+        }
+        .wrap li{
+            height:200px;
+            width:200px;
+            list-style: none;
+            float: left;
+        }
+        .wrap li img{
+            height:100%;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap" class="wrap">
+    <ul>
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("wrap");
+    var oUl=oDiv.getElementsByTagName("ul")[0];
+    var oLis=oUl.getElementsByTagName("li");
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=oLis.length*oLis[0].offsetWidth+"px";
+    function move() {
+        if(oDiv.scrollLeft>=oUl.offsetWidth/2){
+            oDiv.scrollLeft=0;
+        }else{
+            oDiv.scrollLeft++;
+        }
+        window.setTimeout(move,5);
+    }
+    move();
+</script>

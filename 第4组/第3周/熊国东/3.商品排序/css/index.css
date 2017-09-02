@@ -1,0 +1,55 @@
+html,body{
+    background: #ccc;
+    font-size: 14px;
+}
+.wrap{
+    width:1200px;
+    margin:0 auto;
+}
+.menu{
+    height:50px;
+    padding:10px;
+    margin-bottom: 10px;
+    background: white;
+}
+.menu span,.menu a{
+    display: block;
+    float: left;
+    line-height:50px;
+    margin-left: 10px;
+}
+.menu a{
+    color: #777;
+}
+.menu a:hover{
+    color: red;
+}
+.list{
+    margin-left: -15px;
+}
+.list li{
+    width: 206px;
+    list-style: none;
+    float: left;
+    padding:10px;
+    margin:15px 0 15px 15px ;
+    border:1px solid white;
+    background: white;
+}
+.list li:hover{
+    border: 1px solid red;
+}
+.list li img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.list li span{
+    display: block;
+    padding:10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+

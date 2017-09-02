@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li id="li">2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+<script>
+    function prev(ele){
+        var pre = ele.previousSibling;
+        while(pre){
+            if(pre.nodeType == 1){
+                return pre;
+            }
+            pre =  pre.previousSibling;
+        }
+        return null;
+    }
+    var oLi = document.getElementById("li");
+    console.log(prev(oLi));
+</script>

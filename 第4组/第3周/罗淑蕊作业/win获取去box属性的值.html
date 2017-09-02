@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     *
+     * @param attr
+     * box 的10个属性
+     *   clientWidth,clientHeight,clientLeft,clientTop
+     *   offsetWidth,offsetHeight,offsetLeft,offsetTop,offsetParent
+     *   scrollWidth,scrollHeight
+     * @param value
+     *     scrollLeft
+     *     scrollTop
+     * 当value 有时就是设置值
+     * 当value没有设置的时就是undefined就会执行if里的语句就是获取值
+     *
+     */
+    function win(attr,value) {
+        if(typeof value==='undefined'){
+         return document.documentElement[attr]|| document.body[attr]
+        }else{
+            document.documentElement[attr]=value;
+            document.body[attr]=value
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,46 @@
+body{
+    background-color: #F4F4F4;
+    height: 100%;
+}
+.box{
+    width: 1200px;
+    margin: 10px auto;
+    font-size: 14px;
+}
+.top{
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    width: 1170px;
+    margin: 0 auto;
+}
+.top span,.top a{
+    width: 90px;
+    float: left;
+    color: black;
+    text-align: center;
+}
+.top a:hover{
+    color: red;
+}
+.bot{
+
+}
+.bot li{
+    background-color: white;
+    width: 200px;
+    margin: 15px 0 15px 15px;
+    padding: 10px 10px 0 10px;
+    float: left;
+    border:1px solid white;
+}
+.bot li img{
+    width: 100%;
+}
+.bot li span{
+    display: block;
+    line-height: 30px;
+}
+.bot li:hover{
+    border:1px solid red;
+}
