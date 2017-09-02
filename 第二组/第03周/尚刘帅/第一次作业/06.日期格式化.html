@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期格式化</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var str='2017-09-01 20:30:33';
+    var tempStr='{0}年{1}月{2}日 {3}时{4}分{5}秒';
+    var reg=/[-/:\s]+/g;
+    str=str.replace(reg,' ');
+    var strAry=str.split(' ');
+    var regTempStr=/{(\d)}/g;
+    tempStr=tempStr.replace(regTempStr,function () {
+        return strAry[arguments[1]];
+    });
+    console.log(tempStr);
+
+
+</script>

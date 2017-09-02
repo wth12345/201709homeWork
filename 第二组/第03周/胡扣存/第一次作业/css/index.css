@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:antiquewhite;
+}
+.wrap{
+    width: 1200px;
+    margin:0 auto;
+}
+.top{
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+}
+.top span{
+    margin-left:20px;
+    margin-right:20px;
+}
+.top a{
+    margin-right:15px;
+    text-decoration: none;
+    color:gray;
+}
+.bottom{
+    margin-top: 30px;
+}
+.bottom ul{
+    list-style:none;
+    overflow: hidden;
+}
+.bottom ul li{
+    float: left;
+    width: 195px;
+    padding: 15px;
+    background: #ffffff;
+    margin:15px 15px 0 0;
+    text-align: center;
+}
+.bottom ul li img{
+    width: 180px;
+}
+.bottom ul li span{
+    display: block;
+    padding:6px 0;
+}

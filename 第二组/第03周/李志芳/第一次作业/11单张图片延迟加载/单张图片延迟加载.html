@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 1000px;
+            background-color: peachpuff;
+        }
+        img{
+            width: 300px;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1"></div>
+<img src="img/load.gif" realSrc="img/center.jpg">
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var oImg=document.getElementsByTagName("img")[0];
+    var imgT=utils.offset(oImg).top+oImg.clientHeight;
+    window.onscroll=function(){
+        winT=utils.win("clientHeight")+utils.win("scrollTop");
+        if(winT>imgT){
+            if(oImg.loaded) return;
+            var tempImg=new Image();
+            tempImg.src=oImg.getAttribute("realSrc");
+            tempImg.onload=function () {
+                oImg.src=this.src;
+                oImg.loaded=true;
+                tempImg=null;
+            };
+            tempImg.onerror=function () {
+                oImg.src="img/error.jpg";
+                oImg.loaded=true;
+            }
+        }
+    }
+
+
+
+</script>

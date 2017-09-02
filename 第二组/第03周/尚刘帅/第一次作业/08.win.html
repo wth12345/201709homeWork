@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>win</title>
+</head>
+<body>
+    <div style="height: 2000px;"></div>
+</body>
+</html>
+<script>
+
+    function win(attr,value) {
+        if(!value){
+            return document.documentElement[attr]||document.body[attr];
+        }else{
+            document.documentElement[attr]=value;
+            document.body[attr]=value;
+        }
+    }
+
+    console.log(win('clientHeight'));
+    console.log(win('scrollTop',1000));
+
+</script>

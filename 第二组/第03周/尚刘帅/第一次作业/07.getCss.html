@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getCss</title>    <style>
+
+    #div{
+        width:100px;
+        height: 100px;
+        background-color:aqua;
+        color:black;
+        font-size: 20px;
+        opacity: 0.5;
+        filter: alpha(opacity=70);
+    }
+
+</style>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>
+<script>
+
+    var div=document.getElementById('div');
+    function getCss(ele,attr) {
+        var temp=null;
+        if(window.getComputedStyle){
+            temp=window.getComputedStyle(ele,null)[attr];
+        }else{
+            if(attr==='opacity'){
+                temp=ele.currentStyle['filter'];
+                var reg=/^alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)$/;
+                temp=reg.test(temp)?RegExp.$1/100:1;
+            }else{
+                temp=ele.currentStyle[attr];
+            }
+        }
+        var reg=/^[+-]?(?:\d+(?:\.\d+)?)(?:px|pt|rem|em|%)?$/i;
+        return reg.test(temp)?parseFloat(temp):temp;
+    }
+
+    console.log(getCss(div, 'opacity'));
+    console.log(getCss(div, 'color'));
+    console.log(getCss(div, 'height'));
+
+</script>

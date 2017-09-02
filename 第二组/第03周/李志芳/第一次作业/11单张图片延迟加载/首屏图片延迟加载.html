@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        #div1 img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <img src="img/load.gif" realSrc="img/center.jpg">
+</div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById("div1");
+    var oImg=oDiv.getElementsByTagName("img")[0];
+    var timer=window.setTimeout(function(){
+        var newImg=new Image();
+        newImg.src=oImg.getAttribute("realSrc");
+        newImg.onload=function(){
+            oImg.src=this.src;
+            newImg=null;
+        };
+        newImg.onerror=function(){
+            oImg.src="img/error.jpg";
+        };
+    },1000)
+</script>

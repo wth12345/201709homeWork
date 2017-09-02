@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断是否为公有属性</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //判断是否为公有属性
+    Object.prototype.hasPublicProperty=function (attr) {
+        return attr in this&&!this.hasOwnProperty(attr);
+    };
+
+    function Fn(){
+        this.x=10;
+        this.y=20;
+    }
+
+    Fn.prototype.z=30;
+
+    var fn=new Fn();
+    console.log(fn.hasPublicProperty('z'));
+    console.log(fn.hasPublicProperty('x'));
+    console.log(fn.hasOwnProperty('x'));
+
+
+</script>

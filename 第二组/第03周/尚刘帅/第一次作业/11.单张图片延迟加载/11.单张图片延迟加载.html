@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单张图片延迟加载</title>
+    <style>
+
+        #outer{
+            height:3000px;
+        }
+
+        #inner{
+            width:300px;
+            height:300px;
+            position: absolute;
+            left:0;
+            top: 3000px;
+            background-color: #555555;
+            text-align: center;
+        }
+
+        #inner img{
+            width:100%;
+            height:100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner"><img src="img/default.gif" realImg="img/001.jpg"></div>
+</div>
+</body>
+</html>
+<script>
+
+    //var outer=document.getElementById('outer');
+    var inner=document.getElementById('inner');
+    var img=inner.getElementsByTagName('img')[0];
+    var needHeight=offset(img).top+img.offsetHeight;
+    window.onscroll=function () {
+        var userHeight=win('clientHeight')+win('scrollTop');
+        if(img.loaded) return;
+        if(userHeight>=needHeight){
+            var tempImg=new Image;
+            tempImg.src=img.getAttribute('realImg');
+            tempImg.onload=function () {
+                tempImg.loaded=true;
+                img.src=tempImg.src;
+                tempImg=null;
+            };
+            tempImg.onerror=function () {
+                img.src="img/error.gif";
+            };
+        }
+    };
+
+    function offset(ele) {
+        var left=ele.offsetLeft;
+        var top=ele.offsetTop;
+        var reference=ele.offsetParent;
+        while(reference){
+            if(navigator.userAgent.indexOf('MSIE 8.0')===-1){
+                left+=reference.clientLeft;
+                top+=reference.clientTop;
+            }
+            left+=reference.offsetLeft;
+            top+=reference.offsetTop;
+            reference=reference.offsetParent;
+        }
+        return {
+            left:left,
+            top:top
+        }
+    }
+
+    function win(attr,value) {
+        if(!value){
+            return document.documentElement[attr]||document.body[attr];
+        }else{
+            document.documentElement[attr]=value;
+            document.body[attr]=value;
+        }
+    }
+
+</script>

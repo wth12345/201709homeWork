@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str="ssssdefssekmkkjjjfheidjjj";
+    //思路一  利用对象不重名
+   /*var obj={};
+   for(var i=0;i<str.length;i++){
+       var cur=str[i];
+       obj[cur]>=1?obj[cur]+=1:obj[cur]=1;
+   }
+   var max=0,maxStr="";
+    for(var key in obj){
+        if(obj[key]>max){
+            max=obj[key];
+            maxStr=key;
+        }else if(obj[key]==max){
+            maxStr+=key;
+        }
+    }*/
+    //思路二 用正则
+    str=str.split("").sort(function(a,b){return a.localeCompare(b);}).join("");
+    var max=0,maxStr="";
+    str.replace(/(\w)\1*/g,function () {
+        if(arguments[0].length>max){
+            max=arguments[0].length;
+            maxStr=arguments[1];
+        }else if(arguments[0].length==max){
+            maxStr+=arguments[1];
+        }
+    });
+    console.log(max, maxStr);
+
+</script>

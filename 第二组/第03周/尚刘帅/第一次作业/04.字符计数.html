@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符技术</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    ////两种思路: 1)对象不重名的特性 2)重复子项；
+    function characterCount1(str) {
+        var obj={};
+        var temp=null;
+        var maxCharacter='';
+        var maxCount=0;
+        for(var i=0;i<str.length;i++){
+            temp=str.charAt(i);
+            if(obj[temp]){
+                obj[temp]++;
+            }else{
+                obj[temp]=1;
+            }
+        }
+        for(var key in obj){
+            if(obj[key]>maxCount){
+                maxCount=obj[key];
+                maxCharacter=key;
+            }else if(obj[key]===maxCount){
+                maxCharacter+=' '+key;
+            }
+        }
+        return '字符：'+maxCharacter+'\n次数：'+maxCount;
+    }
+
+    function characterCount2(str) {
+        var maxCharacter='';
+        var maxCount=0;
+        var reg=/(\w)\1+/g;
+        var obj={};
+        str=str.split('').sort(function (a,b) {
+            return a.localeCompare(b);
+        }).join('');
+        str.replace(reg,function () {
+            obj[arguments[1]]= arguments[0].length;
+        });
+
+        for(var key in obj){
+            if(obj[key]>maxCount){
+                maxCount=obj[key];
+                maxCharacter=key;
+            }else if(obj[key]===maxCount){
+                maxCharacter+=' '+key;
+            }
+        }
+
+        return '字符：'+maxCharacter+'\n次数：'+maxCount;
+    }
+
+
+    var str='aaaaabbbccAABBCAAA';
+    console.log(characterCount1(str));
+    console.log(characterCount2(str));
+
+</script>

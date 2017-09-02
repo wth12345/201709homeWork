@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //有效数字的规则;18-65岁的正则;去除首尾空格的正则;
+    var reg1=/^[+-]?([0-9]|[1-9]\d+)(\.\d+)?$/;
+    var reg2=/^(1[89])|([2-5]\d)|(6[0-5])$/;
+    var reg3=/[^\s+].*[^\s+]/;
+    //var reg3=/^[^\s].*[^\s]$/;
+    var str=' Hui ';
+    console.log(reg1.test('123.324'));
+    console.log(reg1.test('324'));
+    console.log(reg1.test('abc.123'));
+    console.log(reg1.test('.324'));
+    console.log(reg2.test('22'));
+    console.log(reg2.test('111'));
+    console.log(reg2.test('1'));
+    console.log(str.match(reg3));
+
+</script>

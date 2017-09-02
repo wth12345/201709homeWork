@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            margin: 22px;
+            padding: 22px;
+            border: 10px solid #999999;
+        }
+        #warp {
+            width: 300px;
+            height: 300px;
+            background-color: #2c85ce;
+        }
+        #center{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div id="center">
+        <div id="inner"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function offset(ele) {
+        var l = ele.offsetLeft;
+        var t = ele.offsetTop;
+        var p = ele.offsetParent;
+        while (p) {
+            if (!/MSIE 8\.0/.test(navigator.userAgent)) {
+                l += p.clientLeft;
+                t += p.clientTop;
+            }
+            l += p.offsetLeft;
+            t += p.offsetTop;
+            p = p.offsetParent;
+        }
+        return {
+            l: l, t: t
+        }
+    }
+
+    var oDiv=document.getElementById("inner");
+    console.log(offset(oDiv));
+
+</script>

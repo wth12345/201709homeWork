@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li id="li3">333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>
+<script>
+    function getPrev(ele){
+        var pre=ele.previousSibling;
+        while (pre){
+            if(pre.nodeType==1){
+                return pre;
+            }
+            pre=pre.previousSibling;
+        }
+        return null;
+    }
+    var oLi3=document.getElementById("li3");
+    console.log(getPrev(oLi3));
+
+
+</script>
