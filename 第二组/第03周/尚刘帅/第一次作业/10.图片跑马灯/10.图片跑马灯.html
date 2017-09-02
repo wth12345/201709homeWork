@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片跑马灯</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            margin: 150px auto;
+            height: 300px;
+            width: 1200px;
+            border: 5px dashed aqua;
+            overflow: hidden;
+        }
+
+        #list{
+            width:6000px;
+        }
+
+        #list li{
+            width:300px;
+            list-style: none;
+            float: left;
+        }
+
+        #list li img{
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="list">
+        <li><img src="img/000.jpg"></li>
+        <li><img src="img/001.jpg"></li>
+        <li><img src="img/002.jpg"></li>
+        <li><img src="img/003.jpg"></li>
+        <li><img src="img/004.jpg"></li>
+        <li><img src="img/005.jpg"></li>
+        <li><img src="img/006.jpg"></li>
+        <li><img src="img/007.jpg"></li>
+        <li><img src="img/008.jpg"></li>
+        <li><img src="img/009.jpg"></li>
+        <li><img src="img/010.jpg"></li>
+        <li><img src="img/011.jpg"></li>
+        <li><img src="img/012.jpg"></li>
+        <li><img src="img/013.jpg"></li>
+        <li><img src="img/014.jpg"></li>
+        <li><img src="img/015.jpg"></li>
+        <li><img src="img/000.jpg"></li>
+        <li><img src="img/001.jpg"></li>
+        <li><img src="img/002.jpg"></li>
+        <li><img src="img/003.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+
+    var div=document.getElementById('box');
+    window.setInterval(function () {
+        div.scrollLeft+=5;
+        if(div.scrollLeft>=4800){
+            div.scrollLeft=0;
+        }
+    },15)
+
+</script>

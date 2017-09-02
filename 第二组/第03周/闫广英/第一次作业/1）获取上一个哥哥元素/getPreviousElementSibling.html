@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li id="11"></li>
+        <li id="22"></li>
+        <li id="33"></li>
+        <li id="44"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    function getPrev(ele) {
+        var cur = ele.previousSibling;
+        while (cur){
+            if (cur.nodeType === 1) {
+                return cur;
+            }
+            cur = cur.previousSibling;
+        }
+        return null;
+    }
+    var oDiv = document.getElementById("11");
+    console.log(getPrev(oDiv));//----->null;
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //获取任意元素的css样式属性
+
+    function getCss(ele,attr) {
+        var res=null;
+        if("getComputedstyle" in window){
+
+            return res=window.getComputedStyle(ele,null)[attr];
+        }else{
+            if(attr=="opacity"){
+                res=ele.currentStyle.filter
+                var reg=/^alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)$/
+                return reg.test(res)?RegExp.$1/100:1
+
+
+            }
+            res=ele.currentStyle[attr];
+
+        }
+        var reg=/^[+-]?(?:\d+(?:\.\d+)?)(?:px|pt|rem|em)?$/
+        return    reg.test(res)?parseFloat(res):res
+
+
+
+    }
+</script>

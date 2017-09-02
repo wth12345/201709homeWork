@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+        *{
+            margin:0;
+        }
+
+        div{
+            padding: 10px;
+            border: 15px solid rgb(115,115,115);
+            margin: 20px;
+        }
+
+        .outer{
+            width:300px;
+            height:300px;
+            background-color: rgb(0,216,204);
+            /*position: relative;*/
+        }
+
+        .center{
+            width:200px;
+            height:200px;
+            background-color: rgb(0,178,148);
+            /*position: relative;*/
+        }
+
+        .inner{
+            width:100px;
+            height:100px;
+            background-color: rgb(0,130,114);
+        }
+
+    </style>
+</head>
+<body>
+<div class="outer" id="outer">
+    <div class="center" id="center">
+        <div class="inner" id="inner"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+    var outer=document.getElementById('outer');
+    var center=document.getElementById('center');
+    var inner=document.getElementById('inner');
+
+    function offset(ele) {
+        var left=ele.offsetLeft;
+        var top=ele.offsetTop;
+        var reference=ele.offsetParent;
+        while(reference){
+            if(navigator.userAgent.indexOf('MSIE 8.0')===-1){
+                left+=reference.clientLeft;
+                top+=reference.clientTop;
+            }
+            left+=reference.offsetLeft;
+            top+=reference.offsetTop;
+            reference=reference.offsetParent;
+        }
+        return {
+            left:left,
+            top:top
+        }
+    }
+
+    console.log(offset(inner));
+
+
+</script>

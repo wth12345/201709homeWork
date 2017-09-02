@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str="aaaabbbcccbAABBBddd"
+    str=str.split("").sort(function (a,b) {
+        return a.localeCompare(b)
+    }).join("")
+    console.log(str);
+    var reg=/(\w)\1*/g
+    var max=0;
+    var maxstr="";
+    str.replace(reg,function ($0,$1) {
+        if($0.length>max){
+            max=$0.length;
+            maxstr=$1;
+        }else if($0.length===max){
+            maxstr+=","+$1
+        }
+    });
+    console.log(max,maxstr);
+</script>

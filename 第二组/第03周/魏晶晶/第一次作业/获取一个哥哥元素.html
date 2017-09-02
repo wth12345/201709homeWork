@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>222</li>
+    <li id="list"></li>
+    <li></li>
+</ul>
+
+</body>
+</html>
+<script>
+    var oLi=document.getElementById("list");
+    function prev(ele) {
+        if(ele.previousElementSibling){
+            return ele.previousElementSibling
+        }
+        else {
+            var pre=ele.previousSibling;
+            while (pre.nodeType==1){
+
+                return pre
+            }
+            pre=pre.previousSibling
+        }
+
+
+    }
+    console.log(prev(oLi));
+
+</script>

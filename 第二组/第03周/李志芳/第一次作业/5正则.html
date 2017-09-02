@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //有效数组的规则
+    var reg1=/[+-]?(\d|([1-9]\d+))(\.\d+)?/;
+
+    //18-65岁  拆分成 18-19 20-59 60-65
+    var reg2=/^((1[8-9])|([2-6]\d)|(6[0-5]))$/;
+    console.log(reg2.test(47));
+
+    //去除首尾空格的正则
+    var str=" 18 ";
+    var reg3=/(^\s)|(\s$)/g;
+    str=str.replace(reg3,"");
+    console.log(str);
+</script>
